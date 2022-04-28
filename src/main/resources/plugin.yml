@@ -1,0 +1,11 @@
+name: VSleepVote
+version: '${project.version}'
+main: com.vsleepvote.vsleepvote.VSleepVote
+api-version: 1.18
+authors: [ Kodeekk ]
+description: allows you vote to skip night
+website: Kodeekk
+commands:
+  vsleepvote:
+    description: allows you vote to skip night
+    usage: /<command> [answer]
