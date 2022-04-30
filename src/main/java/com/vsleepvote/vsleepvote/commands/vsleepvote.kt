@@ -29,9 +29,14 @@ object vsleepvote : CommandExecutor{
             votedPlayers.add(sender.name)
             Bukkit.getPlayer(sender.name)?.sendMessage("${Bukkit.getPlayer(sender.name)?.name} vote to skip night!")
             var vpp = (Bukkit.getOnlinePlayers().size / 100) * votedPlayers.size
-            if(vpp > 90 || Bukkit.getOnlinePlayers().size < 2)
+            if(vpp > 90) {
+                Bukkit.getWorld("world")?.time = 1500
+                sender.sendMessage("If the percentage of players who voted is more than 90, the night will be skipped!")
+            }
+            if(Bukkit.getOnlinePlayers().size < 2) {
                 Bukkit.getWorld("world")?.time = 1500
                 sender.sendMessage("Night skipped!")
+            }
         }
         votedPlayers.forEach { el -> Bukkit.getConsoleSender().sendMessage(el) }
         if(args[0] == "fskip") {
